@@ -1,0 +1,55 @@
+{
+  "swagger": "2.0",
+  "host": "ltwlf-functions-bin-to-base64.azurewebsites.net",
+  "basePath": "/api",
+  "info": {
+    "title": "Bin to Base64 Function",
+    "version": "1.0.0.0",
+    "description": "Converts binary data to a base64 data url."
+  },
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/ConvertBinToBase64": {
+      "post": {
+        "operationId": "ConvertBinToBase64",
+        "description": "binary data",
+        "summary": "Convert binary data to a data url",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "file",
+            "x-ms-summary": "Binary Data",
+            "in": "formData",
+            "required": true,
+            "type": "file",
+            "x-ms-media-kind": "image"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Base64 DataUrl",
+            "x-ms-summary": "Base64 Data Url",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "apikeyQuery": {
+      "type": "apiKey",
+      "name": "code",
+      "in": "query"
+    }
+  }
+
+}
