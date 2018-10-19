@@ -36,7 +36,7 @@ namespace Mondi.Functions.DataOperations
 
             log.LogInformation("File was successfully as Base64 Data Url encoded.");
 
-            return new OkObjectResult(dataUrl);
+            return new OkObjectResult(new {dataUrl=dataUrl});
         }
     }
 }

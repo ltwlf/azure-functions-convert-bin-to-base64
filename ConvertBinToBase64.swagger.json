@@ -3,7 +3,7 @@
   "host": "ltwlf-functions-bin-to-base64.azurewebsites.net",
   "basePath": "/api",
   "info": {
-    "title": "Bin to Base64 Function",
+    "title": "Bin To Base64 Function",
     "version": "1.0.0.0",
     "description": "Converts binary data to a base64 data url."
   },
@@ -13,7 +13,7 @@
   "paths": {
     "/ConvertBinToBase64": {
       "post": {
-        "operationId": "ConvertBinToBase64",
+        "operationId": "BinToBase64",
         "description": "binary data",
         "summary": "Convert binary data to a data url",
         "consumes": [
@@ -37,9 +37,20 @@
             "description": "Base64 DataUrl",
             "x-ms-summary": "Base64 Data Url",
             "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "dataUrl": {
+                  "type": "string",
+                  "description": "dataUrl"
+                }
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "Content-Type",
+                "type": "string"
+              }
             }
-          }
         }
       }
     }
